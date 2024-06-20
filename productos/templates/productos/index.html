@@ -18,7 +18,7 @@
                 <!--Login-->
                 <div class="dropdown"> 
                     <button class="btn  dropdown-toggle" type="button" id="dropdownForm" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="img/perfil.gif" alt="" width="30" height="30">
+                        <img src="{% static 'img/perfil.gif' %}" alt="" width="30" height="30">
                     </button>
                     <!-- Formulario -->
                     <div class="dropdown-menu" style="background-color:  #7888AF;color: white;" aria-labelledby="dropdownForm">
@@ -42,7 +42,7 @@
                     <div class="container-cart-icon position-relative">
                         <div class="carrito"> 
                             <button class="carrito navbar-toggler d-lg-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                                <img src="img/carrito-de-compras.gif" alt="Carrito de compras" width="30" height="30">
+                                <img src="{% static 'img/carrito-de-compras.gif' %}" alt="Carrito de compras" width="30" height="30">
                             </button>
                             <!-- Elemento para mostrar la cantidad de productos -->
                             <span id="contador-productos" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
@@ -53,14 +53,14 @@
         </div>
         <!--Logo-->
         <center>
-            <a href="index.html"><img src="img/refugio-de-animales.png" alt="Bootstrap" height="80" width="80"></a>
+            <a href="index.html"><img src="{% static 'img/refugio-de-animales.png' %}" alt="Bootstrap" height="80" width="80"></a>
         </center> 
         
 
         <!--Menu-->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid" style="background-color: #7888AF;">
-                <img src="img/beagle.png" alt="" width="40" height="40">
+                <img src=" {% static 'img/beagle.png' %}" alt="" width="40" height="40">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -68,17 +68,17 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.html" style="color:white;">
-                                <img src="img/animales (1).png" alt="Inicio" style="height: 20px; margin-right: 5px;">Inicio
+                                <img src="{% static 'img/animales (1).png' %}" alt="Inicio" style="height: 20px; margin-right: 5px;">Inicio
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="nosotros.html" style="color:white;">
-                                <img src="img/animales (1).png" alt="Ver todo" style="height: 20px; margin-right: 5px;">Nosotros
+                                <img src="{% static 'img/animales (1).png' %}" alt="Ver todo" style="height: 20px; margin-right: 5px;">Nosotros
                             </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="accesorios.html" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-                                <img src="img/animales (1).png" alt="Adornos" style="height: 20px; margin-right: 5px;">Accesorios
+                                <img src=" {% static 'img/animales (1).png'%}" alt="Adornos" style="height: 20px; margin-right: 5px;">Accesorios
                             </a>
                             <ul class="dropdown-menu" style="background-color:#7888AF;">
                                 <li><a class="dropdown-item" href="bandana.html" style="color: white;">Bandana</a></li>
@@ -88,17 +88,17 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="adopta.html" style="color: white;">
-                                <img src="img/animales (1).png" alt="Nosotros" style="height: 20px; margin-right: 5px;">Adopta
+                                <img src="{% static 'img/animales (1).png' %}" alt="Nosotros" style="height: 20px; margin-right: 5px;">Adopta
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contacto.html" style="color: white;">
-                                <img src="img/animales (1).png" alt="Nosotros" style="height: 20px; margin-right: 5px;">Contactanos
+                                <img src="{% static 'img/animales (1).png'%}" alt="Nosotros" style="height: 20px; margin-right: 5px;">Contactanos
                             </a>
                         </li>
                     </ul> 
                 </div>
-                <img src="img/gato.png" alt="" width="40" height="40" style="background-position: center;">
+                <img src=" {% static 'img/gato.png'%}" alt="" width="40" height="40" style="background-position: center;">
             </div>
         </nav>
         <!--Carrito de compras barra desplegable-->
@@ -161,7 +161,7 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="img/RUWAC5JSHFFUBIGS4ROI5II4L4.jpg" class="d-block w-100" alt="..." height="600" width="200"> 
+                    <img src="{% static 'img/RUWAC5JSHFFUBIGS4ROI5II4L4.jpg' %}" class="d-block w-100" alt="..." height="600" width="200"> 
                     <div class="carousel-caption d-none d-md-block" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); padding: 20px;">
                         <h5 style="font-size: 30px; color:white;">Comprometidos con nuestros peludos</h5>
                         <p style="color: white;">Puedes ser parte de esta hermosa familia.</p>
@@ -171,14 +171,14 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="img/Diseño sin título.png" class="d-block w-100" alt="..." height="600"width="200">
+                    <img src="{% static 'img/Diseño sin título.png' %}" class="d-block w-100" alt="..." height="600"width="200">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Second slide label</h5>
                         <p>Some representative placeholder content for the second slide.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="img/dog-bath-resigned-wet-soapy-grooming-animal.jpg" class="d-block w-100" alt="..." height="600"width="200">
+                    <img src="{% static 'img/dog-bath-resigned-wet-soapy-grooming-animal.jpg'%}" class="d-block w-100" alt="..." height="600"width="200">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -192,10 +192,10 @@
         </div>
         <h1 style="font-family: 'Georgia', serif; text-align: center; color: #7888AF;">¿Como nos puedes ayudar?</h1>
         <center>
-            <img class="img1" src="img/Hazte socio.png" alt="" width="100" height="100">
-            <img class="img1" src="img/Adopta.png" alt=""  width="100" height="100">
-            <img class="img1" src="img/Dona.png" alt=""  width="100" height="100">
-            <img class="img1" src="img/voluntariado.png" alt=""  width="100" height="100">
+            <img class="img1" src="{% static 'img/Hazte socio.png'%}" alt="" width="100" height="100">
+            <img class="img1" src="{% static 'img/Adopta.png' %}" alt=""  width="100" height="100">
+            <img class="img1" src="{% static 'img/Dona.png' %}" alt=""  width="100" height="100">
+            <img class="img1" src="{% static 'img/voluntariado.png' %}" alt=""  width="100" height="100">
         </center>
 
         <!--Carrusel productos-->
@@ -209,7 +209,7 @@
                         <div class="carruselCard">
                             <!--Card 1-->
                             <div class="card Ccard" style="width: 14rem;">
-                                <img src="img/Productos/bandana_black_sheep.jpg" alt="producto">
+                                <img src="{% static 'img/Productos/bandana_black_sheep.jpg' %}" alt="producto">
                                 <div class="info-product">
                                     <h5 class="card-title">Bandana Black Sheep</h5>
                                     <p class="price card-text">$6390</p>
@@ -218,7 +218,7 @@
                             </div>
                             <!--Card 2-->
                             <div class="card Ccard" style="width: 14rem;">
-                                <img class="card-img-top" src="img/Productos/Placaidentificacionhuesodorado_1024x1024@2x.webp" alt="Card image cap">
+                                <img class="card-img-top" src="{% static 'img/Productos/Placaidentificacionhuesodorado_1024x1024@2x.webp' %}" alt="Card image cap">
                                 <div class="info-product">
                                     <h5 class="card-title">Placa identificación hueso dorado</h5>
                                     <p class="price card-text">$9990</p>
@@ -227,7 +227,7 @@
                             </div>
                             <!--Card 3-->
                             <div class="card Ccard" style="width: 14rem;">
-                                <img class="card-img-top" src="img/Productos/correa6.png" alt="Card image cap">
+                                <img class="card-img-top" src="{% static 'img/Productos/correa6.png' %}" alt="Card image cap">
                                 <div class="info-product">
                                     <h5 class="card-title">Zeedog Correa Honey</h5>
                                     <p class="price card-text">$11990</p>
