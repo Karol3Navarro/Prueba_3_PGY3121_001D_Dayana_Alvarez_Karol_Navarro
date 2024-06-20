@@ -160,7 +160,7 @@
                     <!--Card 1-->
                     <div class="col">
                         <div class="card" style="width: 14rem;">
-                            <img src="img/1.jpg" class="card-img-top" alt="...">
+                            <img src="{% static 'img/1.jpg'%}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Toby</h5>
                                 <p class="card-text">2 meses </p>
@@ -170,7 +170,7 @@
                     <!--Card 2-->
                     <div class="col">
                         <div class="card" style="width: 14rem;">
-                            <img src="img/pi.jpg" class="card-img-top" alt="...">
+                            <img src="{% static 'img/pi.jpg'%}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Luffy</h5>
                                 <p class="card-text">2 Años</p>
@@ -180,7 +180,7 @@
                     <!--Card 3-->
                     <div class="col">
                         <div class="card" style="width: 14rem;">
-                            <img src="img/2.jpg" class="card-img-top" alt="...">
+                            <img src="{% static 'img/2.jpg'%}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Akira</h5>
                                 <p class="card-text">3 meses</p>
@@ -190,7 +190,7 @@
                     <!--Card 4-->
                     <div class="col">
                         <div class="card" style="width: 14rem;">
-                            <img src="img/4.jpeg" class="card-img-top" alt="...">
+                            <img src="{% static 'img/4.jpeg'%}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Itadori</h5>
                                 <p class="card-text">1 Año</p>
@@ -200,7 +200,7 @@
                     <!--Card 5-->
                     <div class="col">
                         <div class="card" style="width: 14rem;">
-                            <img src="img/qq.jpg" class="card-img-top" alt="...">
+                            <img src="{% static 'img/qq.jpg'%}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Raul</h5>
                                 <p class="card-text">5 Años</p>
@@ -210,7 +210,7 @@
                      <!--Card 6-->
                      <div class="col">
                         <div class="card" style="width: 14rem;">
-                            <img src="img/o.jpg" class="card-img-top" alt="...">
+                            <img src="{% static 'img/o.jpg'%}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Yuka</h5>
                                 <p class="card-text">4 meses</p>
@@ -225,17 +225,17 @@
     <footer>
         <ul class="social-icons">
             <p style="color: white;">Nuestras Redes sociales</p>
-            <li><a href="#"><img src="img/facebook.png" alt="Facebook" width="40" height="40"></a></li>
-            <li><a href="#"><img src="img/instagram.png" alt="Instagram" width="40" height="40"></a></li>  
+            <li><a href="#"><img src="{% static 'img/facebook.png'%}" alt="Facebook" width="40" height="40"></a></li>
+            <li><a href="#"><img src="{% static 'img/instagram.png'%}" alt="Instagram" width="40" height="40"></a></li>  
         </ul>
         <div class="fundacion">
             <center>
-                <img src="img/refugio-de-animales.png" width="60" height="60" alt="">
+                <img src="{% static 'img/refugio-de-animales.png'%}" width="60" height="60" alt="">
                 <p style="color: white;" >--Fundacion Sin fines de lucro creada en el 2019--</p>
             </center>
         </div>
     </footer>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="{% static 'js/main.js' %}"></script>
 </body>

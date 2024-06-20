@@ -160,21 +160,21 @@
                 <div class="d-flex justify-content-between mb-4">
                     <!--Card 1-->
                     <div class="card" style="width: 18rem;">
-                        <img src="img/FUNDACION-HUELLA-ANIMAL.jpg" class="card-img-top" alt="...">
+                        <img src="{% static 'img/FUNDACION-HUELLA-ANIMAL.jpg'%}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-text">Proporcionarles cuidado veterinario y encontrarles hogares permanentes a través de procesos de adopción responsables.</p>
                         </div>
                     </div>
                     <!--Card 2-->
                     <div class="card" style="width: 18rem;">
-                        <img src="img/fundacion-affinity-equip.jpg" class="card-img-top" alt="...">
+                        <img src="{% static 'img/fundacion-affinity-equip.jpg'%}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-text">Rescatar animales abandonados, maltratados o en situación de riesgo.</p>
                         </div>
                     </div>
                     <!--Card 3-->
                     <div class="card" style="width: 18rem;">
-                        <img src="img/https___cloudfront-us-east-1.images.arcpublishing.com_prisachile_RZ7SDIJDUZF2RG475VXDKSOKGE.avif" class="card-img-top" alt="...">
+                        <img src="{% static 'img/https___cloudfront-us-east-1.images.arcpublishing.com_prisachile_RZ7SDIJDUZF2RG475VXDKSOKGE.avif'%}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-text">Nuestros animalitos reciben atención veterinaria, incluyendo chequeos médicos, vacunaciones, esterilización/castración y tratamiento para cualquier condición médica.</p>
                         </div>
@@ -189,7 +189,7 @@
                     <!--Card 1-->
                     <div class="col">
                         <div class="card" style="width: 10rem;">
-                            <img src="img/jefe.png" class="card-img-top" alt="...">
+                            <img src="{% static 'img/jefe.png'%}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Juan perez</h5>
                                 <p class="card-text">Director Ejecutivo y Fundador </p>
@@ -199,7 +199,7 @@
                     <!--Card 2-->
                     <div class="col">
                         <div class="card" style="width: 10rem;">
-                            <img src="img/persona-soltera.png" class="card-img-top" alt="...">
+                            <img src="{% static 'img/persona-soltera.png'%}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Marta Perez</h5>
                                 <p class="card-text">Directora de Bienestar Animal</p>
@@ -209,7 +209,7 @@
                     <!--Card 3-->
                     <div class="col">
                         <div class="card" style="width: 10rem;">
-                            <img src="img/mujer.png" class="card-img-top" alt="...">
+                            <img src="{% static 'img/mujer.png'%}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Cristina Martin</h5>
                                 <p class="card-text">Directora de Comunicaciones</p>
@@ -219,7 +219,7 @@
                     <!--Card 4-->
                     <div class="col">
                         <div class="card" style="width: 10rem;">
-                            <img src="img/hombre.png" class="card-img-top" alt="...">
+                            <img src="{% static 'img/hombre.png'%}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Roberto Lazo</h5>
                                 <p class="card-text">Director de Administración y Finanzas</p>
@@ -229,7 +229,7 @@
                     <!--Card 5-->
                     <div class="col">
                         <div class="card" style="width: 10rem;">
-                            <img src="img/mujer2.png" class="card-img-top" alt="...">
+                            <img src="{% static 'img/mujer2.png'%}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Maria Rosales</h5>
                                 <p class="card-text">Directora Veterinaria</p>
@@ -244,17 +244,19 @@
     <footer>
         <ul class="social-icons">
             <p style="color: white;">Nuestras Redes sociales</p>
-            <li><a href="#"><img src="img/facebook.png" alt="Facebook" width="40" height="40"></a></li>
-            <li><a href="#"><img src="img/instagram.png" alt="Instagram" width="40" height="40"></a></li>  
+            <li><a href="#"><img src="{% static 'img/facebook.png'%}" alt="Facebook" width="40" height="40"></a></li>
+            <li><a href="#"><img src="{% static 'img/instagram.png'%}" alt="Instagram" width="40" height="40"></a></li>  
         </ul>
         <div class="fundacion">
             <center>
-                <img src="img/refugio-de-animales.png" width="60" height="60" alt="">
+                <img src="{% static 'img/refugio-de-animales.png'%}" width="60" height="60" alt="">
                 <p style="color: white;" >--Fundacion Sin fines de lucro creada en el 2019--</p>
             </center>
         </div>
     </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
 </body>
 </html>
