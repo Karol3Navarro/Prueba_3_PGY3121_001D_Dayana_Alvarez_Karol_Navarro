@@ -11,8 +11,8 @@
     <h1>Nuevos Productos</h1>
     
     <br>
-    {% for x in productos %}
-        {{x.id_producto}}, {{x.nombre}}, {{x.precio}}
+    {% for x in producto %}
+        {{x.nombre}}, {{x.precio}}
         <br>
         <img src="{{x.imagen.url}}" alt="img" width="200" height="200">
     {% endfor%}

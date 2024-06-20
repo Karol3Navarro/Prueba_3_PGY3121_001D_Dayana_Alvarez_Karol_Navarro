@@ -7,6 +7,6 @@ def index(request):
     return render (request, 'productos/index.html', context)
 
 def nuevos_prod(request):
-    productos = Producto.objects.all()
-    context={'servicio':productos}
+    producto = Producto.objects.all()
+    context={'producto':producto}
     return render(request,'productos/nuevos_prod.html', context)
