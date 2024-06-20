@@ -2,7 +2,8 @@
     font-size: 12px;
 }
 .fondo {
-    background-image: url(img/istockphoto-1310151529-640x640.jpg);   
+    background-image: url('/static/img/istockphoto-1310151529-640x640.jpg');
+    
 }
 /* Esto es para que el boton de usuario quede tactil */
 .dropdown:hover .dropdown-menu {
