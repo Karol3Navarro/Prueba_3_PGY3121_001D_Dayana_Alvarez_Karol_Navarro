@@ -174,7 +174,7 @@ img{
 .container-items{
     display: grid;
     grid-template-columns: repeat(5, 5fr);
-    gap: 20px;
+/* SE BORRO ESTO   gap: 20px;*/
 }
 .info-product{
     padding: 15px 30px;
