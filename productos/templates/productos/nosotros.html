@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href='{% static "css/style.css" %}'>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <title>Popsipatitas</title>
+    </head>
+<body>
+      <!--Barra principal-->
+      <header>
+        <div class="contendorBoton2">
+            <!--Login y Carrito-->
+            <div class="btnCarritoLogin">
+                <!--Login-->
+                <div class="dropdown"> 
+                    <button class="btn  dropdown-toggle" type="button" id="dropdownForm" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{% static 'img/perfil.gif' %}" alt="" width="30" height="30">
+                    </button>
+                    <!-- Formulario -->
+                    <div class="dropdown-menu" style="background-color:  #7888AF;color: white;" aria-labelledby="dropdownForm">
+                        <form class="form">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Nombre de usuario</label>
+                                <input type="text" class="form-control" id="username" placeholder="Ingresa tu nombre de usuario">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-secondary" onclick="login()">Iniciar sesión</button><br>
+                            <a href="{% url 'registro' %}"type="submit" class="btn btn-primary btn-secondary">Registrar</a>
+                        </form>
+                    </div>
+                </div>
+                
+                <!--Carrito de compras -->
+                <div class="container-icon">
+                    <div class="container-cart-icon position-relative">
+                        <div class="carrito"> 
+                            <button class="carrito navbar-toggler d-lg-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                <img src="{% static 'img/carrito-de-compras.gif' %}" alt="Carrito de compras" width="30" height="30">
+                            </button>
+                            <!-- Elemento para mostrar la cantidad de productos -->
+                            <span id="contador-productos" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Logo-->
+        <center>
+            <a href="{% url 'index' %}"><img src="{% static 'img/refugio-de-animales.png' %}" alt="Bootstrap" height="80" width="80"></a>
+        </center> 
+        
+
+        <!--Menu-->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid" style="background-color: #7888AF;">
+                <img src=" {% static 'img/beagle.png' %}" alt="" width="40" height="40">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'index' %}"style="color:white;">
+                                <img src="{% static 'img/animales (1).png' %}" alt="Inicio" style="height: 20px; margin-right: 5px;">Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'nosotros' %}" style="color:white;">
+                                <img src="{% static 'img/animales (1).png' %}" alt="Ver todo" style="height: 20px; margin-right: 5px;">Nosotros
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="accesorios.html" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                                <img src=" {% static 'img/animales (1).png'%}" alt="Adornos" style="height: 20px; margin-right: 5px;">Accesorios
+                            </a>
+                            <ul class="dropdown-menu" style="background-color:#7888AF;">
+                                <li><a class="dropdown-item" href="{% url 'bandana' %}" style="color: white;">Bandana</a></li>
+                                <li><a class="dropdown-item" href="{% url 'correa' %}" style="color: white;">Correas</a></li>
+                                <li><a class="dropdown-item" href="{% url 'identificacion' %}" style="color: white;">Identificaciones</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'adopta' %}" style="color: white;">
+                                <img src="{% static 'img/animales (1).png' %}" alt="Nosotros" style="height: 20px; margin-right: 5px;">Adopta
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contacto' %}" style="color: white;">
+                                <img src="{% static 'img/animales (1).png'%}" alt="Nosotros" style="height: 20px; margin-right: 5px;">Contactanos
+                            </a>
+                        </li>
+                    </ul> 
+                </div>
+                <img src=" {% static 'img/gato.png'%}" alt="" width="40" height="40" style="background-position: center;">
+            </div>
+        </nav>
+        <!--Carrito de compras barra desplegable-->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="container-cart-products hidden-cart">
+                <div class="row-product hidden">
+                    <div class="cart-product">
+                        <div class="info-cart-product">
+                            <span class="cantidad-producto-carrito">1</span>
+                            <p class="titulo-producto-carrito">Bandana Black Sheep</p>
+                            <span class="precio-producto-carrito">$6.390</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-total hidden">
+                    <h3>Total:</h3>
+                    <span class="total-pagar">$200</span>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Finalizar compra
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <p class="cart-empty">El carrito está vacío</p>
+
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirmar compra</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que deseas finalizar tu compra?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <a href="{% url 'carrito' %}"><button type="button"  class="btn btn-primary">Confirmar</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <!--Introduccion del equipo-->
+        <div class="fondo"> 
+            <h1 style="font-family: 'Georgia', serif; text-align: center;">Descubre mas de nosotros</h1>
+            <p style="text-align: center;">"Fundacion creada sin fines de lucro desde el año 2019, nuestra mision es proteger a los peludos que mas lo necesiten"</p>
+            <div class="container">
+                <div class="d-flex justify-content-between mb-4">
+                    <!--Card 1-->
+                    <div class="card" style="width: 18rem;">
+                        <img src="img/FUNDACION-HUELLA-ANIMAL.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Proporcionarles cuidado veterinario y encontrarles hogares permanentes a través de procesos de adopción responsables.</p>
+                        </div>
+                    </div>
+                    <!--Card 2-->
+                    <div class="card" style="width: 18rem;">
+                        <img src="img/fundacion-affinity-equip.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Rescatar animales abandonados, maltratados o en situación de riesgo.</p>
+                        </div>
+                    </div>
+                    <!--Card 3-->
+                    <div class="card" style="width: 18rem;">
+                        <img src="img/https___cloudfront-us-east-1.images.arcpublishing.com_prisachile_RZ7SDIJDUZF2RG475VXDKSOKGE.avif" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Nuestros animalitos reciben atención veterinaria, incluyendo chequeos médicos, vacunaciones, esterilización/castración y tratamiento para cualquier condición médica.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Equipo fundacion-->
+            <h1 class="text-center mt-5" style="font-family: 'Georgia', serif;">Nuestro Equipo</h1>
+            <p style="text-align: center;">Contamos con profesionales que dia a dia se dedican al cuidado de nuestras mascotas</p>
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-5 g-2" style="margin-left: 20px;">
+                    <!--Card 1-->
+                    <div class="col">
+                        <div class="card" style="width: 10rem;">
+                            <img src="img/jefe.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Juan perez</h5>
+                                <p class="card-text">Director Ejecutivo y Fundador </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Card 2-->
+                    <div class="col">
+                        <div class="card" style="width: 10rem;">
+                            <img src="img/persona-soltera.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Marta Perez</h5>
+                                <p class="card-text">Directora de Bienestar Animal</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Card 3-->
+                    <div class="col">
+                        <div class="card" style="width: 10rem;">
+                            <img src="img/mujer.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Cristina Martin</h5>
+                                <p class="card-text">Directora de Comunicaciones</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Card 4-->
+                    <div class="col">
+                        <div class="card" style="width: 10rem;">
+                            <img src="img/hombre.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Roberto Lazo</h5>
+                                <p class="card-text">Director de Administración y Finanzas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Card 5-->
+                    <div class="col">
+                        <div class="card" style="width: 10rem;">
+                            <img src="img/mujer2.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Maria Rosales</h5>
+                                <p class="card-text">Directora Veterinaria</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </main>            
+    <!--Footer-->
+    <footer>
+        <ul class="social-icons">
+            <p style="color: white;">Nuestras Redes sociales</p>
+            <li><a href="#"><img src="img/facebook.png" alt="Facebook" width="40" height="40"></a></li>
+            <li><a href="#"><img src="img/instagram.png" alt="Instagram" width="40" height="40"></a></li>  
+        </ul>
+        <div class="fundacion">
+            <center>
+                <img src="img/refugio-de-animales.png" width="60" height="60" alt="">
+                <p style="color: white;" >--Fundacion Sin fines de lucro creada en el 2019--</p>
+            </center>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+</html>
