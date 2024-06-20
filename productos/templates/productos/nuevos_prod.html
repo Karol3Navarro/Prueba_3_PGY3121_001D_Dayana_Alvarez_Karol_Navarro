@@ -15,15 +15,11 @@
     <div class="container">
         {% for x in producto %}
             <div class="producto">
-                
-
-                <h5>{{x.nombre}}</h5>
-                <p >Precio: {{x.precio}}</p>
-                <p >Cantidad: {{x.cantidad}}</p>
-                <p>{{x.id_categoria}}</p>
-                <div class="imagen_p">
-                    <img src="{{x.imagen.url}}"  alt="..." width="200px" height="100px">
-                </div>
+                <h4>{{x.id_categoria}}</h4>
+                <h6>{{x.nombre}}</h6>
+                <p>Precio: {{x.precio}}</p>
+                <p>Cantidad: {{x.cantidad}}</p>
+                <img src="{{x.imagen.url}}"  alt="..." width="200px" height="100px">
             </div>
         {% endfor%}
     </div>
