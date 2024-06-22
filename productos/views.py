@@ -47,7 +47,7 @@ def productosAdd(request):
         # id_producto=request.POST["id_producto"]
         nombre=request.POST["nombre"]
         precio=request.POST["precio"]
-        imagen=request.POST["imagen"]
+        imagen=request.FILES["imagen"]
         cantidad=request.POST["cantidad"]
         categoria=request.POST["categoria"]
         activo="1"
@@ -99,7 +99,7 @@ def productosUpdate(request):
         id_producto=request.POST["id_producto"]
         nombre=request.POST["nombre"]
         precio=request.POST["precio"]
-        imagen=request.POST["imagen"]
+        imagen=request.FILES["imagen"]
         cantidad=request.POST["cantidad"]
         categoria=request.POST["categoria"]
         activo="1"
