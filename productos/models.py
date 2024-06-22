@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here. popsipatitas
 class Categoria(models.Model):
     id_categoria = models.AutoField(db_column='idCategoria', primary_key=True)
-    catagoria = models.CharField(max_length=20, blank=False, null=False)
+    categoria = models.CharField(max_length=20, blank=False, null=False)
 
     def __str__(self):
-        return str(self.catagoria)
+        return str(self.categoria)
 
 class Producto(models.Model):
     id_producto = models.AutoField(db_column='idProducto', primary_key=True)
