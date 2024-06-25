@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Editar Categorías</h1>
+
+    <br>
+
+    <button type="button">
+        <a href="{% url 'categoriasAdd' %}">Agregar</a>
+    </button>
+
+    <div id="idMensaje">
+        {% if mensaje %}
+            {{mensaje}}
+        {% endif %}
+    </div>
+
+    <table>
+        {% if categorias %}
+            <th>Categorías</th>
+            <th>Eliminar</th>
+            <th>Modificar</th>
+            {% for x in categorias %}
+                <tr>
+                    <td>{{x.categoria}}
+                    <td><a href="{% url 'categorias_del'  pk=x.id_categoria %}">Eliminar</a> 
+                    <td><a href="{% url 'categorias_edit'  pk=x.id_categoria %}">Modificar</a>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#idMensajes".delay(2000).fadeOut("slow"));
+        })
+    </script>
+</body>
+</html>

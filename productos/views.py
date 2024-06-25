@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from .models import Producto, Categoria
+
+from .forms import CategoriaForm
 
 # Create your views here.
 def index(request):
@@ -123,3 +126,67 @@ def productosUpdate(request):
         context={'productos':productos}
         return render(request, 'productos/nuevos_prod.html', context)
 
+def crud_categorias(request):
+    categorias = Categoria.objects.all()
+    context = {'categorias':categorias}
+    # print("enviando datos generos_list")
+    return render(request, 'productos/categorias_list.html', context)
+
+def categoriasAdd(request):
+    context={}
+    if request.method == "POST":
+        # print("controlador es un post...")
+        form = CategoriaForm(request.POST)
+        if form.is_valid:
+            print("estoy en agregar, is_valid")
+            form.save()
+
+            form=CategoriaForm()
+            context={'mensaje':"Ok, datos grabados...", "form":form}
+            return render(request, 'productos/categorias_add.html', context)
+    else:
+        form = CategoriaForm()
+        context={'form':form}
+        return render(request, 'productos/categorias_add.html', context)
+
+def categorias_del(request,pk):
+    mensajes = []
+    errores = []
+    categorias = Categoria.objects.all()
+    try:
+        categoria= Categoria.objects.get(id_categoria=pk)
+
+        context={}
+        if categoria:
+            categoria.delete()
+            mensajes.append=("Bien, datos eliminados...")
+            context={'categorias':categorias, 'mensajes':mensajes, 'errores':errores}
+            return render(request, 'productos/categorias_list.html', context)
+    except:
+        mensaje="Error, id no existe..."
+        categorias = Categoria.objects.all()
+        context={'mensaje':mensaje, 'categorias':categorias}
+        return render(request, 'productos/categorias_list.html',context)
+
+def categorias_edit(request, pk):
+    try:
+        categoria= Categoria.objects.get(id_categoria=pk)
+        context={}
+        if categoria:
+            if request.method == "POST":
+                form =CategoriaForm(request.POST, instance=categoria)
+                form.save()
+                mensaje = "Bien, datos actualizados..."
+                print(mensaje)
+                context={'categoria':categoria, 'form':form, 'mensaje': mensaje}
+                return render(request, 'productos/categorias_edit.html', context)
+            else:
+                form =CategoriaForm(instance=categoria)
+                mensaje=""
+                context={'categoria':categoria, 'form':form, 'mensaje':mensaje}
+                return render(request, 'productos/categorias_edit.html', context)
+    except:
+        categorias= Categoria.objects.all()
+        mensaje="Error, id no existe"
+        context={'mensaje':mensaje, 'categorias': categorias}
+        return render(request, 'productos/categorias_list.html', context)
