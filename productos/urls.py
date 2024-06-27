@@ -22,4 +22,13 @@ urlpatterns = [
     path('categoriasAdd',views.categoriasAdd, name='categoriasAdd'),
     path('categorias_del/<str:pk>',views.categorias_del, name='categorias_del'),
     path('categorias_edit/<str:pk>', views.categorias_edit, name='categorias_edit'),
+     path('agregar_al_carrito/<int:producto_id>/', views.agregar_al_carrito, name='agregar_al_carrito'),
+    path('ver_carrito/', views.ver_carrito, name='ver_carrito'),
+    path('ingresar_datos/', views.ingresar_datos, name='ingresar_datos'),
+    path('limpiar_carrito/', views.limpiar_carrito, name='limpiar_carrito'),
+    path('checkout/', views.checkout, name='checkout'),
+    path('procesar_datos/', views.procesar_datos, name='procesar_datos'),
+
+    
+
 ]

@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from urllib import request
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
-from .models import Producto, Categoria
-
+from .models import Producto, Categoria, ItemCarrito
+from .carrito import Carrito
 from .forms import CategoriaForm
 
 # Create your views here.
@@ -34,9 +35,10 @@ def identificacion(request):
 def contacto(request):
     context={}
     return render (request, 'productos/contacto.html', context)
-def carrito(request):
+def carrito (request):
     context={}
     return render (request, 'productos/carrito.html', context)
+
 def socio(request):
     context={}
     return render (request, 'productos/socio.html', context)
@@ -190,3 +192,67 @@ def categorias_edit(request, pk):
         mensaje="Error, id no existe"
         context={'mensaje':mensaje, 'categorias': categorias}
         return render(request, 'productos/categorias_list.html', context)
+    
+def agregar_al_carrito(request, producto_id):
+    producto = get_object_or_404(Producto, pk=producto_id)
+    if request.method == 'POST':
+        cantidad = int(request.POST.get('cantidad', 1))
+        carrito = Carrito(request)
+        carrito.agregar(producto=producto, cantidad=cantidad)
+        return redirect('nuevos_prod')
+
+    return render(request, 'productos/agregar_al_carrito.html', {'producto': producto})
+
+def ver_carrito(request):
+    carrito = Carrito(request)
+    items = carrito.get_items()
+    total = carrito.get_total()
+    return render(request, 'productos/ver_carrito.html', {'items': items, 'total': total})
+
+def eliminar_del_carrito(request, item_id):
+    carrito = Carrito(request)
+    item = get_object_or_404(ItemCarrito, id=item_id)
+    carrito.eliminar(item)
+    return redirect('ver_carrito')
+
+def limpiar_carrito(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect('ver_carrito')
+def ingresar_datos(request):
+    return render(request, 'productos/ingresar_datos.html')
+def procesar_datos(request):
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        direccion = request.POST.get('direccion')
+        telefono = request.POST.get('telefono')
+
+        # Aquí podrías guardar los datos en tu modelo de Usuario o sesión si fuera necesario
+
+        # Luego redirigir al checkout con los datos del usuario y los detalles del carrito
+        context = {
+            'usuario': {
+                'nombre': nombre,
+                'direccion': direccion,
+                'telefono': telefono,
+            },
+            'items': obtener_items_del_carrito(request),  # Pasando request a la función
+            'total': calcular_total_del_carrito(request),  # Debes implementar esta función para calcular el total del carrito
+        }
+        return render(request, 'productos/checkout.html', context)
+def obtener_items_del_carrito(request):
+    carrito = Carrito(request)
+    items = carrito.get_items()
+    return items
+
+def calcular_total_del_carrito(request):
+    carrito = Carrito(request)
+    total = carrito.get_total()
+    return total
+
+def checkout(request):
+    carrito = Carrito(request)
+    items = carrito.get_items()
+    total = carrito.get_total()
+    # Aquí implementarías la lógica para procesar el pago, enviar correos, etc.
+    return render(request, 'productos/checkout.html', {'items': items, 'total': total})

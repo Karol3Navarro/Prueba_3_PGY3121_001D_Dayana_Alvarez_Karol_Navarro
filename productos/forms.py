@@ -1,5 +1,5 @@
 from django import forms
-from .models import Categoria
+from .models import Categoria 
 
 from django.forms import ModelForm
 
