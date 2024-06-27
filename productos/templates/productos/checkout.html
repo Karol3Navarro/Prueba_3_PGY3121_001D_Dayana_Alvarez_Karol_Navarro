@@ -179,6 +179,10 @@
                 {% endfor %}
             </ul>
         <p class="total">Total: {{ total }}</p>
+        <div class="modal-footer">
+            <a href="{% url 'nuevos_prod' %}" class="btn btn-secondary">Cancelar</a>
+            <a href="{% url 'index' %}" class="btn btn-primary">Confirmar</a>
+        </div>
     
 
     <!-- Aquí iría el formulario de pago -->

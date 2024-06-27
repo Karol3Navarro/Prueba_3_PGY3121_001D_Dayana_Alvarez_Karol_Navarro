@@ -150,10 +150,13 @@
             </div>
         </div>
     </header>  
-   
+
     <center>
     <h1>Carrito de Compras</h1>
 </center> 
+<button type="button">
+    <a href="{% url 'nuevos_prod' %}">Volver</a>
+</button>
 <ul class="list-group">
     {% for item in items %}
     <ol class="list-group-item   align-items-center">
@@ -164,6 +167,14 @@
 
             <h5 class="mb-1 small">{{ item.producto.nombre }}</h5>
             <p class="mb-1 small">Cantidad: {{ item.cantidad }}</p>
+            <form action="{% url 'incrementar_cantidad' item.producto.id_producto %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit">+</button>
+              </form>
+              <form action="{% url 'decrementar_cantidad' item.producto.id_producto %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit">-</button>
+              </form>
             <p class="mb-1 small">Precio Unitario: {{ item.producto.precio }}</p>
             <p class="mb-1 small">Subtotal: {{ item.subtotal }}</p>
         </div>
@@ -174,7 +185,7 @@
     <p>Total: {{ total }}</p>
     <div class="mt-4">
         <a href="{% url 'limpiar_carrito' %}" class="btn btn-danger me-2">Vaciar Carrito</a>
-        <a href="{% url 'ingresar_datos' %}" class="btn btn-primary">Proceder al Checkout</a>
+        <a href="{% url 'ingresar_datos' %}" class="btn btn-primary">Siguiente</a>
     </div>
 
     

@@ -44,6 +44,19 @@ class Carrito:
             item_obj.precio = item['precio']
             items.append(item_obj)
         return items
+    def incrementar_cantidad(self, producto_id):
+        producto_id = str(producto_id)
+        if producto_id in self.carrito:
+            self.carrito[producto_id]['cantidad'] += 1
+            self.guardar_carrito()
+
+    def decrementar_cantidad(self, producto_id):
+        producto_id = str(producto_id)
+        if producto_id in self.carrito and self.carrito[producto_id]['cantidad'] > 0:
+            self.carrito[producto_id]['cantidad'] -= 1
+            if self.carrito[producto_id]['cantidad'] == 0:
+                del self.carrito[producto_id]
+            self.guardar_carrito()
 
     def get_total(self):
         return sum(int(item['precio']) * item['cantidad'] for item in self.carrito.values())

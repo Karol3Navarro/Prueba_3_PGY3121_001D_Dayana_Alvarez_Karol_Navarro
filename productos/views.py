@@ -24,8 +24,8 @@ def nosotros(request):
     context={}
     return render (request, 'productos/nosotros.html', context)
 def bandana(request):
-    context={}
-    return render (request, 'productos/bandana.html', context)
+    productos = Producto.objects.all()  # Assuming Producto is your model for products
+    return render(request, 'productos/bandana.html', {'productos': productos})
 def correa(request):
     context={}
     return render (request, 'productos/correa.html', context)
@@ -256,3 +256,14 @@ def checkout(request):
     total = carrito.get_total()
     # Aquí implementarías la lógica para procesar el pago, enviar correos, etc.
     return render(request, 'productos/checkout.html', {'items': items, 'total': total})
+def incrementar_cantidad(request, producto_id):
+    producto = Producto.objects.get(id_producto=producto_id)
+    carrito = Carrito(request)
+    carrito.incrementar_cantidad(producto_id)
+    return redirect('ver_carrito')
+
+def decrementar_cantidad(request, producto_id):
+    producto = Producto.objects.get(id_producto=producto_id)
+    carrito = Carrito(request)
+    carrito.decrementar_cantidad(producto_id)
+    return redirect('ver_carrito')
