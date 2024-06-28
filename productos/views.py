@@ -267,3 +267,4 @@ def decrementar_cantidad(request, producto_id):
     carrito = Carrito(request)
     carrito.decrementar_cantidad(producto_id)
     return redirect('ver_carrito')
+
