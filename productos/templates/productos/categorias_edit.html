@@ -13,7 +13,9 @@
     </style>
 </head>
 <body>
-    <h2>Formulario Actualizar Categorías</h2><br>
+    <center>
+        <h2>Formulario Actualizar Categorías</h2>
+    </center><br>
     <div style="text-align: center;">
         {% if categoria %}
             
@@ -21,7 +23,7 @@
                 {% csrf_token %}
 
                 {{ form.as_table}}
-                <input type="submit" name="opcion" value="Actualizar">
+                <input class="btn btn-primary me-md-2" type="submit" name="opcion" value="Actualizar">
             </form> <br><br>
         {% endif %}
         <div id="idMensaje">
@@ -30,7 +32,9 @@
             {% endif%}
         </div>
         <br><br>
-        <a href="{% url 'crud_categorias' %}">Volver</a>
+        <button class="btn btn-primary me-md-2" type="button">
+            <a style="color: white; text-decoration: none;" href="{% url 'crud_categorias' %}">Volver</a>
+        </button>
     </div>
 </body>
 </html>
