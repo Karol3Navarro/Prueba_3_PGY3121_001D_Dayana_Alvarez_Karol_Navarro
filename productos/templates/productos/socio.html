@@ -10,8 +10,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
 <body>
-     <!--Barra principal-->
-     <header>
+    <!--Barra principal-->
+    <header>
         <div class="contendorBoton2">
             <!--Login y Carrito-->
             <div class="btnCarritoLogin">
@@ -63,16 +63,10 @@
                                 <img src="{% static 'img/animales (1).png' %}" alt="Ver todo" style="height: 20px; margin-right: 5px;">Nosotros
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="accesorios.html" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-                                <img src=" {% static 'img/animales (1).png'%}" alt="Adornos" style="height: 20px; margin-right: 5px;">Accesorios
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'nuevos_prod' %}" style="color:white;">
+                                <img src="{% static 'img/animales (1).png' %}" alt="Ver todo" style="height: 20px; margin-right: 5px;">Nuevos Productos
                             </a>
-                            <ul class="dropdown-menu" style="background-color:#7888AF;">
-                                <li><a class="dropdown-item" href="{% url 'bandana' %}" style="color: white;">Bandana</a></li>
-                                <li><a class="dropdown-item" href="{% url 'correa' %}" style="color: white;">Correas</a></li>
-                                <li><a class="dropdown-item" href="{% url 'identificacion' %}" style="color: white;">Identificaciones</a></li>
-                                <li><a class="dropdown-item" href="{% url 'nuevos_prod' %}" style="color: white;">Nuevos productos</a></li>
-                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'adopta' %}" style="color: white;">
@@ -89,6 +83,8 @@
                 <img src=" {% static 'img/gato.png'%}" alt="" width="40" height="40" style="background-position: center;">
             </div>
         </nav>
+        <!--Carrito de compras barra desplegable-->
+        
     </header>
 
     <main>
