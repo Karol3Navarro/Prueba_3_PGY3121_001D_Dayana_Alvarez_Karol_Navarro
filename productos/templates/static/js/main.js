@@ -141,17 +141,27 @@ function Confirmar(){
 
 var ordenAscendente = true;
 
+var ordenAscendente = true; // Variable global para controlar el orden ascendente/descendente
+
 function ordenarPorPrecio() {
     console.log("Función ordenarPorPrecio() llamada");
+
     var container = document.getElementById("product-container");
+    if (!container) {
+        console.error("No se encontró el contenedor 'product-container'");
+        return;
+    }
+
     var products = Array.from(container.querySelectorAll('.Ccard'));
 
     // Ordenar productos por precio
     products.sort(function(a, b) {
-        var priceA = parseFloat(a.querySelector('.price').textContent.replace('$', '').replace(',', ''));
-        var priceB = parseFloat(b.querySelector('.price').textContent.replace('$', '').replace(',', ''));
+        var priceA = parseFloat(a.querySelector('.price').textContent.replace('Precio: ', '').replace(',', ''));
+        var priceB = parseFloat(b.querySelector('.price').textContent.replace('Precio: ', '').replace(',', ''));
         
-        // Alternar entre orden ascendente y descendente
+        console.log("Precio A:", priceA);
+        console.log("Precio B:", priceB);
+
         if (ordenAscendente) {
             return priceA - priceB;
         } else {
@@ -168,6 +178,7 @@ function ordenarPorPrecio() {
     // Cambiar la dirección del orden para la próxima vez que se llame a la función
     ordenAscendente = !ordenAscendente;
 }
+
 //Filtro alfabeticamente
 function ordenarAlfabeticamente() {
     console.log("Función ordenarAlfabeticamente() llamada");
