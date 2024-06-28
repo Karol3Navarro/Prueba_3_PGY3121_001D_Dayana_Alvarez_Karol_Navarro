@@ -36,19 +36,6 @@
                         </form>
                     </div>
                 </div>
-                
-                <!--Carrito de compras -->
-                <div class="container-icon">
-                    <div class="container-cart-icon position-relative">
-                        <div class="carrito"> 
-                            <button class="carrito navbar-toggler d-lg-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                                <img src="{% static 'img/carrito-de-compras.gif' %}" alt="Carrito de compras" width="30" height="30">
-                            </button>
-                            <!-- Elemento para mostrar la cantidad de productos -->
-                            <span id="contador-productos" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!--Logo-->
@@ -76,16 +63,10 @@
                                 <img src="{% static 'img/animales (1).png' %}" alt="Ver todo" style="height: 20px; margin-right: 5px;">Nosotros
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="accesorios.html" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-                                <img src=" {% static 'img/animales (1).png'%}" alt="Adornos" style="height: 20px; margin-right: 5px;">Accesorios
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'nuevos_prod' %}" style="color:white;">
+                                <img src="{% static 'img/animales (1).png' %}" alt="Ver todo" style="height: 20px; margin-right: 5px;">Nuevos Productos
                             </a>
-                            <ul class="dropdown-menu" style="background-color:#7888AF;">
-                                <li><a class="dropdown-item" href="{% url 'bandana' %}" style="color: white;">Bandana</a></li>
-                                <li><a class="dropdown-item" href="{% url 'correa' %}" style="color: white;">Correas</a></li>
-                                <li><a class="dropdown-item" href="{% url 'identificacion' %}" style="color: white;">Identificaciones</a></li>
-                                <li><a class="dropdown-item" href="{% url 'nuevos_prod' %}" style="color: white;">Nuevos productos</a></li>
-                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'adopta' %}" style="color: white;">
@@ -103,53 +84,7 @@
             </div>
         </nav>
         <!--Carrito de compras barra desplegable-->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="container-cart-products hidden-cart">
-                <div class="row-product hidden">
-                    <div class="cart-product">
-                        <div class="info-cart-product">
-                            <span class="cantidad-producto-carrito">1</span>
-                            <p class="titulo-producto-carrito">Bandana Black Sheep</p>
-                            <span class="precio-producto-carrito">$6.390</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart-total hidden">
-                    <h3>Total:</h3>
-                    <span class="total-pagar">$200</span>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                        <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Finalizar compra
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <p class="cart-empty">El carrito está vacío</p>
-
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Confirmar compra</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        ¿Estás seguro de que deseas finalizar tu compra?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <a href="{% url 'carrito' %}"><button type="button"  class="btn btn-primary">Confirmar</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </header>
     <main>
         <!--informacion carritos-->
