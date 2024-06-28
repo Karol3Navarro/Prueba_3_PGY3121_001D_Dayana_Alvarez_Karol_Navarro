@@ -90,8 +90,8 @@
     <center>
     <h1>Carrito de Compras</h1>
 </center> 
-<button type="button">
-    <a href="{% url 'nuevos_prod' %}">Volver</a>
+<button class="btn btn-primary me-md-2" type="button">
+    <a style="color: white; text-decoration: none;" href="{% url 'nuevos_prod' %}">Volver</a>
 </button>
 <ul class="list-group">
     {% for item in items %}
@@ -109,7 +109,7 @@
               </form>
               <form action="{% url 'decrementar_cantidad' item.producto.id_producto %}" method="post" style="display: inline;">
                 {% csrf_token %}
-                <button type="submit">-</button>
+                <button   type="submit">-</button>
               </form>
             <p class="mb-1 small">Precio Unitario: {{ item.producto.precio }}</p>
             <p class="mb-1 small">Subtotal: {{ item.subtotal }}</p>
