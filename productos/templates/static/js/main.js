@@ -255,6 +255,10 @@ function buscarProducto2() {
     });
 }
 
+  
+
+
+
 
 
 
