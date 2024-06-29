@@ -23,21 +23,9 @@ def registro(request):
 def nosotros(request):
     context={}
     return render (request, 'productos/nosotros.html', context)
-def bandana(request):
-    productos = Producto.objects.all()  # Assuming Producto is your model for products
-    return render(request, 'productos/bandana.html', {'productos': productos})
-def correa(request):
-    context={}
-    return render (request, 'productos/correa.html', context)
-def identificacion(request):
-    context={}
-    return render (request, 'productos/identificacion.html', context)
 def contacto(request):
     context={}
     return render (request, 'productos/contacto.html', context)
-def carrito (request):
-    context={}
-    return render (request, 'productos/carrito.html', context)
 
 def socio(request):
     context={}
@@ -90,8 +78,6 @@ def productos_findEdit(request, pk):
         producto=Producto.objects.get(id_producto=pk)
         categorias=Categoria.objects.all()
 
-        # print(type(producto.id_categoria.categoria))
-
         context={'producto':producto, 'categorias':categorias}
         if producto:
             return render(request, 'productos/productos_edit.html', context)
@@ -131,13 +117,11 @@ def productosUpdate(request):
 def crud_categorias(request):
     categorias = Categoria.objects.all()
     context = {'categorias':categorias}
-    # print("enviando datos generos_list")
     return render(request, 'productos/categorias_list.html', context)
 
 def categoriasAdd(request):
     context={}
     if request.method == "POST":
-        # print("controlador es un post...")
         form = CategoriaForm(request.POST)
         if form.is_valid:
             print("estoy en agregar, is_valid")
@@ -226,18 +210,14 @@ def procesar_datos(request):
         nombre = request.POST.get('nombre')
         direccion = request.POST.get('direccion')
         telefono = request.POST.get('telefono')
-
-        # Aquí podrías guardar los datos en tu modelo de Usuario o sesión si fuera necesario
-
-        # Luego redirigir al checkout con los datos del usuario y los detalles del carrito
         context = {
             'usuario': {
                 'nombre': nombre,
                 'direccion': direccion,
                 'telefono': telefono,
             },
-            'items': obtener_items_del_carrito(request),  # Pasando request a la función
-            'total': calcular_total_del_carrito(request),  # Debes implementar esta función para calcular el total del carrito
+            'items': obtener_items_del_carrito(request), 
+            'total': calcular_total_del_carrito(request),  
         }
         return render(request, 'productos/checkout.html', context)
 def obtener_items_del_carrito(request):
@@ -254,7 +234,6 @@ def checkout(request):
     carrito = Carrito(request)
     items = carrito.get_items()
     total = carrito.get_total()
-    # Aquí implementarías la lógica para procesar el pago, enviar correos, etc.
     return render(request, 'productos/checkout.html', {'items': items, 'total': total})
 def incrementar_cantidad(request, producto_id):
     producto = Producto.objects.get(id_producto=producto_id)

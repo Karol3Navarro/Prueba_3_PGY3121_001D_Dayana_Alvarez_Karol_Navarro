@@ -255,6 +255,7 @@ function buscarProducto2() {
     var input = document.querySelector('.search-input');
     var filter = input.value.toLowerCase();
     var cards = document.querySelectorAll('.Ccard');
+    
 
     cards.forEach(function(card) {
         var title = card.querySelector('.card-title').textContent.toLowerCase();

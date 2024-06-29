@@ -23,7 +23,7 @@ class Producto(models.Model):
 class ItemCarrito(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField(default=1)
-    usuario = models.CharField(max_length=100)  # Puedes ajustar esto según tu sistema de autenticación
+    usuario = models.CharField(max_length=100)
     comprado = models.BooleanField(default=False)
 
     def subtotal(self):

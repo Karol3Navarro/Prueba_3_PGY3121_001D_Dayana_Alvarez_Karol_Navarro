@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $("#registroForm").submit(function(event){
-        // Evitar que el formulario se envíe automáticamente
         event.preventDefault();
         
         // Realizar las validaciones
@@ -38,14 +37,11 @@ $(document).ready(function(){
             alert("Por favor, seleccione un motivo.");
             return;
         }
-        // Si todas las validaciones pasan, se puede enviar el formulario
         alert("¡Registro exitoso!");
-        // Aquí podrías enviar el formulario utilizando AJAX o cualquier otro método
     });
     
     //Validacion Carrito
     $("#registroCarrito").submit(function(event){
-        // Evitar que el formulario se envíe automáticamente
         event.preventDefault();
         var nombre = $("#inputnombre").val();
         var apellidos = $("#inputApellidos").val();
@@ -95,10 +91,7 @@ $(document).ready(function(){
     });
     //Validacion contacto
     $("#registrocontacto").submit(function(event){
-        // Evitar que el formulario se envíe automáticamente
         event.preventDefault();
-        
-        // Realizar las validaciones
         var nombrecom = $("#Nombrecom").val();
         var correo = $("#correo").val();
         var archivo = $("#Archivo").val();
@@ -125,17 +118,11 @@ $(document).ready(function(){
             alert("El Descripción debe tener entre 3 y 100 caracteres.");
             return;
         }
-
-        // Si todas las validaciones pasan, se puede enviar el formulario
         alert("¡Registro exitoso!");
-        // Aquí podrías enviar el formulario utilizando AJAX o cualquier otro método
     });
     //Validacion Socio
     $("#registroSocio").submit(function(event){
-        // Evitar que el formulario se envíe automáticamente
         event.preventDefault();
-        
-        // Realizar las validaciones socio
         var nombre = $("#nombre").val();
         var donacion = $("#donacion").val();
         var contacto = $("#contacto").val();
@@ -173,9 +160,6 @@ $(document).ready(function(){
             alert("Poner el nombre de la mascota");
             return;
         }
-
-        // Si todas las validaciones pasan, se puede enviar el formulario
         alert("Felicidades, Ya eres socio");
-        // Aquí podrías enviar el formulario utilizando AJAX o cualquier otro método
     });
 });
